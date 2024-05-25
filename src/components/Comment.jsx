@@ -1,13 +1,16 @@
 import "./Comment.css"
 
-const Comment = () => {
+const Comment = (props) => {
+
+    const {name, email, message, date} = props;
     return (
         <div className="comment">
-        <h2>Apresentação...</h2>
-        <p>O Sérgio é uma brasa!</p>
-        <p>17/05/1977</p>
+        <h2>{name}</h2>
+        <p>{email}</p>
+        <p>{message}</p>
+        <p>{date.toString()}</p>
         </div>
-    )
-}
+    );
+};
 
 export default Comment;
