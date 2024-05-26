@@ -4,7 +4,6 @@ import Comment from "./components/Comment";
 
 class App extends React.Component {
 
-
   state = {
     comments : [
       {
@@ -20,24 +19,38 @@ class App extends React.Component {
         message: 'Estou lindo'
       },
     ],
+
+    form: {
+      name: "",
+      email: "",
+      message: "",
+
+    }
   };
 
-  addComment=()=>{
-    const newComment = {
-      name: 'Sónia Loureiro',
-      email: 'sonia.web100@gmail.com',
-      date: new Date(),
-      message: 'Sou muito linda'
-    };
-
+  addComment=(event)=>{
+    
+    event.preventDefault();
+    const newComment = {...this.state.form, date: new Date()};
     this.setState({
-      comments: [...this.state.comments, newComment]
+      comments: [...this.state.comments, newComment],
+      form: {
+        name: "",
+        email: "",
+        message: "",
+      }
     });
+};
 
 
-//    this.state.comments.push(newComment)
-    alert('Devo adiconar um comentário')
-  };
+    onFieldChanged = (event) => {
+      const newCommentForm = this.state.form;
+      newCommentForm[event.target.name] = event.target.value;
+      this.setState ({
+        form: newCommentForm,
+      });
+      // console.log(event.target.name, event.target.value)
+    };
 
     render() {
       return (
@@ -54,7 +67,48 @@ class App extends React.Component {
         />
       );
       })}
-      <button onClick={this.addComment}>Adicionar Comentário.</button>
+
+      <form onSubmit={this.addComment}>
+      <div>
+        <h2>Add a comment</h2>
+        <input
+        onChange={this.onFieldChanged}
+        value={this.state.form.name}
+        type="text"
+        name="name"
+        placeholder="Type here your name"
+        required="required"
+        />
+      </div>
+
+      <div>
+        <input
+        onChange={this.onFieldChanged}
+        value={this.state.form.email}
+        type="email"
+        name="email"
+        placeholder="Type here your email"
+        required="required"
+        />
+      </div>
+
+      <div>
+        <textarea
+        onChange={this.onFieldChanged}
+        value={this.state.form.message}
+        name="message"
+        rows="4"
+        placeholder="Type here you message"
+        required="required"
+        />
+      </div>
+
+      <div>
+        <button type="submit">Add a comment</button>
+      </div>
+      
+      </form>
+
     </div>
       );
     }
