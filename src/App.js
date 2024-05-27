@@ -54,7 +54,7 @@ class App extends React.Component {
     render() {
       return (
       <div className="App">
-      <h1>My Comments App!</h1>
+      <h1>Minha App Comentários!</h1>
       {this.state.comments.map((comment, index)=>{
         return(
         <Comment
@@ -70,13 +70,13 @@ class App extends React.Component {
 
       <form onSubmit={this.addComment}>
       <div>
-        <h2>Add a comment</h2>
+        <h2>Adicionar um comentário</h2>
         <input
         onChange={this.onFieldChanged}
         value={this.state.form.name}
         type="text"
         name="name"
-        placeholder="Type here your name"
+        placeholder="Digite aqui o seu nome"
         required="required"
         />
       </div>
@@ -87,7 +87,7 @@ class App extends React.Component {
         value={this.state.form.email}
         type="email"
         name="email"
-        placeholder="Type here your email"
+        placeholder="Digite aqui o seu email"
         required="required"
         />
       </div>
@@ -98,13 +98,13 @@ class App extends React.Component {
         value={this.state.form.message}
         name="message"
         rows="4"
-        placeholder="Type here you message"
+        placeholder="Digite aqui a sua mensagem"
         required="required"
         />
       </div>
 
       <div>
-        <button type="submit">Add a comment</button>
+        <button type="submit">Adicionar</button>
       </div>
       
       </form>
