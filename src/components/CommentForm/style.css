@@ -1,4 +1,5 @@
 .comment-form {
+    min-width: 550px;
     background-color: rgba(0,0,0,0.2);
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
     border: 1px solid #555555;
@@ -15,7 +16,6 @@
     margin-bottom: 5px;
     border-radius: 5px;
     outline: none;
-    
 }
 .comment-form textarea {
     width: 100%;
@@ -26,19 +26,19 @@
 }
 .comment-form button{
     margin-top: 10px;
-    width: 30%;
+    width: 200px;
     border: 1px solid #555555;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
     text-align: left;
     padding: 5px 5px 5px 15px;
-    font-size: 18px;
+    font-size: 1.25rem;
     border-radius: 5px;
     background: #55555555;
-    color: rgb(204, 204, 204);
+    color: rgba(204, 204, 204, 0.55);
     font-weight: bold;
     cursor: pointer;
 }
 .comment-form button:hover{
-    background: #9b9b9b;
+    background: rgba(70, 70, 70, 0.35);
     color: white;
 }

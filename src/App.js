@@ -2,11 +2,19 @@ import React from "react";
 import './App.css';
 import Comment from "./components/Comment";
 import CommentForm from "./components/CommentForm";
+import Swal from "sweetalert2"
 
 class App extends React.Component {
 
   state = {
-    comments : [],
+    comments : [
+      {
+        name: 'Sérgio Henrique da Silva',
+        email: 'sergio.web100@gmail.com',
+        date: new Date(),
+        message: 'DevSSilva.com, Desenvolvimento Web.'
+      }
+    ],
 
     form: {
       name: "",
@@ -28,6 +36,7 @@ class App extends React.Component {
         message: "",
       }
     });
+    Swal.fire("Comentário adicionado com sucesso!", "", "success")
 };
 
 
@@ -39,6 +48,25 @@ class App extends React.Component {
       });
       // console.log(event.target.name, event.target.value)
     };
+
+    deleteCommentAlert = (comment) =>{
+      Swal.fire({
+        title: "Deseja excluir este comentário?",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "Sim, quero excluir!",
+        denyButtonText: `Não, eu mudei de ideia.`,
+        icon:"question",
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.deleteComment(comment);
+          Swal.fire("Confirmado!", "", "success");
+        } else if (result.isDenied) {
+          Swal.fire("Sem alterações", "", "info");
+        }
+      });
+    }
 
     deleteComment = (comment) => {
 
@@ -64,7 +92,7 @@ class App extends React.Component {
         email={comment.email}
         date={comment.date}
         message={comment.message}
-        onDeleteComment={()=>{this.deleteComment(comment)}}
+        onDeleteComment={()=>{this.deleteCommentAlert(comment)}}
         />
       );
       })}

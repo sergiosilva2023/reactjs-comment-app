@@ -18,7 +18,7 @@ body {
     margin-bottom: 2rem;
     background-color: rgba(0,0,0,0.3);
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     color: #b4b4b4;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
     display: flex;
@@ -26,10 +26,11 @@ body {
 .comment .content{
     margin-left: 1rem;
     position: relative;
+    width: 100%;
 }
 .comment img {
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 70px;
+    max-height: 70px;
 }
 .comment .content .name{
     font-size: 1.25rem;
@@ -50,7 +51,7 @@ body {
     font-size: 0.75rem;
     margin: 0px;
     color: #d3d3d390;
-    text-align: right;
+    text-align: end;
 }
 .comment .content .delete{
     position: absolute;
